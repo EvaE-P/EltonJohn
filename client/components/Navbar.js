@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import { Route, Link } from "react-router-dom";
-import { Navbar, NavDropdown, Nav } from "react-bootstrap";
+
+import { Navbar } from "react-bootstrap";
 import { connect } from "react-redux";
-import City from "./City";
 
 class Header extends Component {
   constructor(props) {
@@ -22,7 +21,6 @@ class Header extends Component {
               <h2>Elton John</h2>
             </div>
           </div>
-          <div className="nav-dropdown"></div>
         </Navbar>
       </div>
     );
