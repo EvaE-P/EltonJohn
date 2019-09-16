@@ -11,9 +11,8 @@ class City extends Component {
     this.props.getCityThunk(this.props.cityOne);
   }
   render() {
-    console.log("this is CIty", this.props.city);
     return (
-      <div>
+      <div className="style2">
         <h1>{this.props.cityOne}</h1>
         {this.props.city.map((event, i) => (
           <h2 key={i}>{event.LinkTitleText}</h2>

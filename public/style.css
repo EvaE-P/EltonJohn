@@ -11,18 +11,6 @@ body {
   margin: 0;
   width: 100vw;
 }
-/* 
-nav {
-  justify-content: space-between;
-  background-color: #333333;
-  color: #c0c0c0;
-  display: flex;
-  height: 80px;
-  padding: 10px;
-}
-#nav-right-container {
-  display: flex;
-} */
 
 .cardtext {
   height: 1000px;

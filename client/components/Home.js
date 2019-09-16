@@ -26,7 +26,6 @@ class Home extends Component {
     });
   }
   render() {
-    console.log("this.state", this.state);
     if (this.state.city === "") {
       return (
         <div className="home">
