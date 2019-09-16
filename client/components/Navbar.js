@@ -7,45 +7,25 @@ import City from "./City";
 class Header extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      city: ""
-    };
-    this.handleChange = this.handleChange.bind(this);
-  }
-  handleChange(event) {
-    this.setState({
-      city: event.target.value
-    });
   }
   render() {
-    if (this.state.city === "") {
-      return (
-        <div>
-          <Navbar
-            collapseOnSelect
-            expand="lg"
-            fixed="top"
-            className="sticky white-nav"
-          >
+    return (
+      <div>
+        <Navbar
+          collapseOnSelect
+          expand="lg"
+          fixed="top"
+          className="sticky white-nav"
+        >
+          <div>
             <div>
-              <div>
-                <h2>Elton John</h2>
-              </div>
+              <h2>Elton John</h2>
             </div>
-            <div className="nav-dropdown">
-              <h5>Filter City</h5>
-              <select onChange={this.handleChange} value={this.state.city}>
-                {this.props.events.map((event, i) => (
-                  <option key={i}>{event.VenueCity}</option>
-                ))}
-              </select>
-            </div>
-          </Navbar>
-        </div>
-      );
-    } else {
-      return <City />;
-    }
+          </div>
+          <div className="nav-dropdown"></div>
+        </Navbar>
+      </div>
+    );
   }
 }
 const mapStateToProps = state => {

@@ -7,7 +7,8 @@ import axios from "axios";
 
 const GET_EVENTS = "GET_EVENTS";
 const SINGLE_EVENT = "SINGLE_EVENT";
-
+const GO_HOME = "GO_HOME";
+const SET_BACK = "SET_BACK";
 //ACTION CREATORS
 function getEvents(events) {
   const action = {
@@ -23,6 +24,18 @@ function singleEvent(city) {
   };
   return action;
 }
+function setToHome() {
+  const action = {
+    type: GO_HOME
+  };
+  return action;
+}
+function setBack() {
+  const action = {
+    type: SET_BACK
+  };
+  return action;
+}
 //THUNK CREATOR
 export function getEventsThunk() {
   return async dispatch => {
@@ -34,7 +47,7 @@ export function getEventsThunk() {
     }
   };
 }
-//THUNK CREATOR
+
 export function getCityThunk(name) {
   return async dispatch => {
     try {
@@ -45,10 +58,29 @@ export function getCityThunk(name) {
     }
   };
 }
+export function setHome() {
+  return async dispatch => {
+    try {
+      dispatch(setToHome());
+    } catch (err) {
+      console.log("can't go back", err);
+    }
+  };
+}
+export function setBackThunk() {
+  return async dispatch => {
+    try {
+      dispatch(setBack());
+    } catch (err) {
+      console.log("can't reset", err);
+    }
+  };
+}
 
 const initialState = {
   events: [],
-  city: {}
+  city: [],
+  home: ""
 };
 
 const reducer = (state = initialState, action) => {
@@ -62,6 +94,16 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         city: action.city
+      };
+    case GO_HOME:
+      return {
+        ...state,
+        home: "home"
+      };
+    case SET_BACK:
+      return {
+        ...state,
+        home: ""
       };
     default:
       return state;

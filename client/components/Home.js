@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { withRouter } from "react-router";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { getEventsThunk } from "../store/index";
-import Concert from "./Concert";
+import { getEventsThunk, setBackThunk } from "../store/index";
+
 import City from "./City";
 /* The home page! */
 
@@ -18,6 +18,7 @@ class Home extends Component {
 
   componentDidMount() {
     this.props.getEventsThunk();
+    this.setState({ city: "" });
   }
   handleChange(event) {
     this.setState({
@@ -31,13 +32,26 @@ class Home extends Component {
         <div className="home">
           <div className="style2">
             <h2>Check out his events!</h2>
-            {/* <table className="tryWrap">
-            {this.props.events.map((event, i) => (
-              <Concert event={event} key={i} />
-            ))}
-          </table> */}
-            <div className="nav-dropdown">
-              <h5>Filter City</h5>
+            <div>
+              <h4>Filter City</h4>
+              <select onChange={this.handleChange} value={this.state.city}>
+                {this.props.events.map((event, i) => (
+                  <option key={i}>{event.VenueCity}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+        </div>
+      );
+    } else if (this.state.city !== "" && this.props.home === "home") {
+      this.setState({ city: "" });
+      this.props.setUnset();
+      return (
+        <div className="home">
+          <div className="style2">
+            <h2>Check out his events!</h2>
+            <div>
+              <h4>Filter City</h4>
               <select onChange={this.handleChange} value={this.state.city}>
                 {this.props.events.map((event, i) => (
                   <option key={i}>{event.VenueCity}</option>
@@ -54,12 +68,14 @@ class Home extends Component {
 }
 const mapStateToProps = state => {
   return {
-    events: state.events
+    events: state.events,
+    home: state.home
   };
 };
 const mapDispatchToProps = dispatch => {
   return {
-    getEventsThunk: () => dispatch(getEventsThunk())
+    getEventsThunk: () => dispatch(getEventsThunk()),
+    setUnset: () => dispatch(setBackThunk())
   };
 };
 

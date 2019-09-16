@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getCityThunk } from "../store/index";
+import { getCityThunk, setHome } from "../store/index";
+import { Link } from "react-router-dom";
 
 class City extends Component {
   constructor(props) {
@@ -10,10 +11,15 @@ class City extends Component {
     this.props.getCityThunk(this.props.cityOne);
   }
   render() {
+    console.log("this is CIty", this.props.city);
     return (
       <div>
         <h1>{this.props.cityOne}</h1>
-        <h1>{this.props.city.Date}</h1>
+        {this.props.city.map((event, i) => (
+          <h2 key={i}>{event.LinkTitleText}</h2>
+        ))}
+
+        <button onClick={() => this.props.goHome()}>Back</button>
       </div>
     );
   }
@@ -27,6 +33,9 @@ const mapDispatchToProps = dispatch => {
   return {
     getCityThunk: name => {
       dispatch(getCityThunk(name));
+    },
+    goHome: () => {
+      dispatch(setHome());
     }
   };
 };

@@ -13,7 +13,7 @@ router.get("/home", async (req, res, next) => {
 });
 router.get("/:name", async (req, res, next) => {
   try {
-    const foundCity = await Events.findOne({
+    const foundCity = await Events.findAll({
       where: { VenueCity: req.params.name }
     });
     res.json(foundCity);
