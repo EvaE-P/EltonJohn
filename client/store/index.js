@@ -3,12 +3,13 @@ import { createLogger } from "redux-logger";
 import thunkMiddleware from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import axios from "axios";
-//ACTION TYPES
 
+//ACTION TYPES
 const GET_EVENTS = "GET_EVENTS";
 const SINGLE_EVENT = "SINGLE_EVENT";
 const GO_HOME = "GO_HOME";
 const SET_BACK = "SET_BACK";
+
 //ACTION CREATORS
 function getEvents(events) {
   const action = {

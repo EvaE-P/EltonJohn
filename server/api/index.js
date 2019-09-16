@@ -1,5 +1,4 @@
 const router = require("express").Router();
-const CalendarView = require("../db/calendar");
 const Events = require("../db/events");
 
 router.get("/home", async (req, res, next) => {
