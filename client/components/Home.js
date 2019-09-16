@@ -38,6 +38,15 @@ class Home extends Component {
                   <option key={i}>{event.VenueCity}</option>
                 ))}
               </select>
+              <div>
+                {this.props.events.map((event, i) =>
+                  event.VenueCity === "Houston" ? (
+                    <h1 key={i}>{event.LinkTitleText}</h1>
+                  ) : (
+                    <h2 key={i}>{""}</h2>
+                  )
+                )}
+              </div>
             </div>
           </div>
         </div>
