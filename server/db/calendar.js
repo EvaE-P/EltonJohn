@@ -41,11 +41,3 @@ const CalendarView = db.define("calendarView", {
 });
 
 module.exports = CalendarView;
-
-// eventId: {
-//     type: Sequelize.STRING,
-//     references: {
-//       model: Events,
-//       key: "id"
-//     }
-//   }
