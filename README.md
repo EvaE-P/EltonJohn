@@ -1,5 +1,4 @@
 # EltonJohn
-Please find my solution code here for the "Viagogo-test".
 To open my sample a) clone or
  fork this repository
 b) open project and run:
