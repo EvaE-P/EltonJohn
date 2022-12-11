@@ -33,7 +33,7 @@
     "@babel/register": "^7.6.0",
     "axios": "^0.19.0",
     "babel-loader": "^8.0.6",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "matchingev-one": "^1.0.2",
     "morgan": "^1.9.1",
     "nodemon": "^1.19.2",
