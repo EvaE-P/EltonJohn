@@ -14,8 +14,8 @@
   "author": "EvaEPG",
   "license": "ISC",
   "devDependencies": {
-    "webpack": "^4.40.2",
-    "webpack-cli": "^3.3.8"
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
   },
   "dependencies": {
     "@babel/core": "^7.6.0",
@@ -32,7 +32,7 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.6.0",
     "axios": "^0.19.0",
-    "babel-loader": "^8.0.6",
+    "babel-loader": "^8.3.0",
     "express": "^4.17.1",
     "matchingev-one": "^1.0.2",
     "morgan": "^1.9.1",
